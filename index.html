@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación | Alejandro & Andrea</title>
+  <meta name="description" content="Invitación de boda de Alejandro y Andrea. 21/05/2027." />
+  <style>
+    :root{
+      --bg:#fbf7f3; --card:#ffffff; --ink:#2b2b2b; --muted:#6a6a6a;
+      --accent:#b07a5b; --accent2:#2f6f6a; --radius:18px;
+      --shadow: 0 14px 40px rgba(0,0,0,.08); --max: 980px;
+      --serif: ui-serif, Georgia, "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:var(--sans); color:var(--ink); line-height:1.5;
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(176,122,91,.12), transparent 60%),
+        radial-gradient(1000px 600px at 90% 10%, rgba(47,111,106,.10), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background:rgba(251,247,243,.7);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .nav .wrap{display:flex; gap:14px; align-items:center; justify-content:space-between}
+    .nav a{ text-decoration:none; font-size:14px; color:var(--muted)}
+    .nav .links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:rgba(255,255,255,.55);
+    }
+    header{padding:34px 0 18px;}
+    .hero{display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; align-items:stretch;}
+    @media (max-width: 860px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:22px; border:1px solid rgba(0,0,0,.06);
+    }
+    h1{font-family:var(--serif); font-weight:600; margin:0 0 8px; font-size:46px; letter-spacing:.3px;}
+    .subtitle{color:var(--muted); font-size:16px; margin:0 0 18px}
+    .bigdate{font-family:var(--serif); font-size:22px; margin:14px 0 0;}
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px; border-radius:12px; border:1px solid rgba(0,0,0,.1);
+      text-decoration:none; font-weight:600; font-size:14px; cursor:pointer;
+    }
+    .btn.primary{ background:var(--accent); color:white; border-color:transparent }
+    .btn.secondary{ background:rgba(47,111,106,.10); color:var(--accent2) }
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width: 860px){ .grid3{grid-template-columns:1fr} }
+    h2{font-family:var(--serif); font-weight:600; margin:0 0 10px; font-size:26px;}
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .tag{font-size:13px; color:var(--muted); border:1px dashed rgba(0,0,0,.15); padding:7px 10px; border-radius:999px}
+    .timeline{display:grid; gap:10px;}
+    .titem{display:flex; gap:12px; align-items:flex-start; padding:12px 12px; border-radius:14px; background:rgba(0,0,0,.03);}
+    .time{min-width:70px; font-weight:700; color:var(--accent2)}
+    .section{padding:14px 0}
+    .divider{height:1px; background:rgba(0,0,0,.07); margin:10px 0 0}
+    footer{padding:26px 0 40px; color:var(--muted); font-size:13px}
+    .countdown{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
+    .cd{
+      flex:1; min-width:120px; padding:12px; border-radius:14px;
+      background:rgba(176,122,91,.10); border:1px solid rgba(176,122,91,.20); text-align:center;
+    }
+    .cd b{display:block; font-size:26px; font-family:var(--serif)}
+    .note{font-size:13px; color:var(--muted); margin-top:10px}
+    .map{width:100%; aspect-ratio: 16/9; border:0; border-radius:16px;}
+    .rsvpbox{display:grid; gap:10px;}
+    input, select, textarea{
+      width:100%; padding:12px 12px; border-radius:12px; border:1px solid rgba(0,0,0,.12);
+      font:inherit; background:white;
+    }
+    textarea{min-height:96px; resize:vertical}
+    .small{font-size:12px}
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <div class="wrap">
+      <div class="pill"><b>ALEJANDRO & ANDREA</b> <span class="muted">Boda</span></div>
+      <div class="links">
+        <a href="#detalles">Detalles</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#info">Info</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="wrap">
+    <div class="hero">
+      <div class="card">
+        <h1>Alejandro & Andrea</h1>
+        <p class="subtitle">Nos casamos y nos encantaría celebrarlo contigo.</p>
+
+        <p class="bigdate">📅 <b>21 de mayo de 2027</b> · ⏰ <b>17:00</b> · 📍 <b>Valencia</b></p>
+
+        <div class="countdown" aria-label="Cuenta atrás">
+          <div class="cd"><b id="d">--</b><span class="muted">días</span></div>
+          <div class="cd"><b id="h">--</b><span class="muted">horas</span></div>
+          <div class="cd"><b id="m">--</b><span class="muted">min</span></div>
+          <div class="cd"><b id="s">--</b><span class="muted">seg</span></div>
+        </div>
+
+        <div class="btns">
+          <a class="btn primary" href="#rsvp">✅ Confirmar asistencia</a>
+          <a class="btn secondary" id="btnCalendar" href="#">📆 Añadir al calendario</a>
+          <a class="btn" id="btnMaps" href="#" target="_blank" rel="noopener">🗺️ Ceremonia (Maps)</a>
+          <a class="btn" id="btnMaps2" href="#" target="_blank" rel="noopener">🗺️ Celebración (Maps)</a>
+        </div>
+
+        <p class="note">Confirma antes del <b>10/05/2027</b>. Si tienes alergias o necesidades especiales, indícalo en el RSVP.</p>
+      </div>
+
+      <div class="card">
+        <h2>El plan</h2>
+        <div class="timeline">
+          <div class="titem">
+            <div class="time">17:00</div>
+            <div><b>Ceremonia</b>
+              <div class="muted">Parroquia Asunción de Nuestra Señora · Benaguacil</div>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="time">20:00</div>
+            <div><b>Cóctel</b>
+              <div class="muted">Masía Campo Aníbal · El Puig</div>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="time">21:30</div>
+            <div><b>Banquete y fiesta</b><div class="muted">¡A celebrar!</div></div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div class="section">
+          <div class="row">
+            <span class="tag">👗 Dress code: <b>[por definir]</b></span>
+            <span class="tag">👶 Niños: <b>[sí/no]</b></span>
+            <span class="tag">🎁 Regalos: <b>Lo importante es que vengas</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="detalles" class="section">
+      <div class="grid3">
+        <div class="card">
+          <h2>Ceremonia</h2>
+          <p class="muted"><b>Parroquia Asunción de Nuestra Señora</b><br/>Benaguacil</p>
+          <p>Hora: <b>17:00</b></p>
+        </div>
+        <div class="card">
+          <h2>Cóctel / Celebración</h2>
+          <p class="muted"><b>Masía Campo Aníbal</b><br/>El Puig</p>
+          <p>Cóctel: <b>20:00</b></p>
+        </div>
+        <div class="card">
+          <h2>Contacto</h2>
+          <p class="muted">Para cualquier duda:</p>
+          <p>📱 <b>[Tel / WhatsApp]</b><br/>✉️ <b>[Email]</b></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion" class="section">
+      <div class="card">
+        <h2>Ubicación</h2>
+        <p class="muted">Te dejamos ambas ubicaciones:</p>
+
+        <h3 style="margin:16px 0 8px; font-family:var(--serif)">Ceremonia · Benaguacil</h3>
+        <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Parroquia%20Asunci%C3%B3n%20de%20Nuestra%20Se%C3%B1ora%20Benaguacil&z=15&output=embed"></iframe>
+
+        <div class="divider"></div>
+
+        <h3 style="margin:16px 0 8px; font-family:var(--serif)">Celebración · El Puig</h3>
+        <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Mas%C3%ADa%20Campo%20An%C3%ADbal%20El%20Puig&z=15&output=embed"></iframe>
+      </div>
+    </section>
+
+    <section id="rsvp" class="section">
+      <div class="card">
+        <h2>RSVP</h2>
+        <p class="muted">Confirma antes del <b>10/05/2027</b>.</p>
+
+        <form class="rsvpbox" onsubmit="return handleRSVP(event)">
+          <div>
+            <label class="small muted">Nombre y apellidos</label>
+            <input required name="name" placeholder="Ej: Ana García" />
+          </div>
+
+          <div class="grid3" style="grid-template-columns:1fr 1fr 1fr;">
+            <div>
+              <label class="small muted">Asistencia</label>
+              <select name="attend" required>
+                <option value="" selected disabled>Elige…</option>
+                <option>Voy 🎉</option>
+                <option>No puedo 😢</option>
+              </select>
+            </div>
+            <div>
+              <label class="small muted">Acompañantes</label>
+              <select name="guests">
+                <option>0</option><option>1</option><option>2</option><option>3</option>
+              </select>
+            </div>
+            <div>
+              <label class="small muted">Menú</label>
+              <select name="menu">
+                <option>Normal</option>
+                <option>Vegetariano</option>
+                <option>Vegano</option>
+                <option>Sin gluten</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="small muted">Alergias / comentarios</label>
+            <textarea name="notes" placeholder="Cuéntanos cualquier detalle importante…"></textarea>
+          </div>
+
+          <button class="btn primary" type="submit">Enviar RSVP</button>
+          <p class="small muted" id="rsvpMsg"></p>
+          <p class="note">Ahora mismo el RSVP solo muestra confirmación en pantalla. Si quieres que se guarde, lo conectamos a Google Forms/Typeform/Airtable.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="info" class="section">
+      <div class="card">
+        <h2>Info útil</h2>
+        <ul>
+          <li><b>Transporte:</b> [parking / autobús / taxis / buses]</li>
+          <li><b>Alojamiento:</b> [hotel recomendado / código descuento]</li>
+          <li><b>Niños:</b> [si habrá animación / si es solo adultos]</li>
+          <li><b>Regalos:</b> [lista / cuenta / “con vuestra presencia…”]</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Hecho con ❤️ para nuestra boda · <span class="muted">Alejandro & Andrea</span>
+    </footer>
+  </main>
+
+  <script>
+    // ===== CONFIG =====
+    // Ceremonia: 21/05/2027 17:00 (España, en mayo suele ser horario de verano +02)
+    const WEDDING_DATETIME = "2027-05-21T17:00:00+02:00";
+
+    const MAPS_CEREMONIA = "https://www.google.com/maps?q=Parroquia%20Asunci%C3%B3n%20de%20Nuestra%20Se%C3%B1ora%20Benaguacil";
+    const MAPS_CELEBRACION = "https://www.google.com/maps?q=Mas%C3%ADa%20Campo%20An%C3%ADbal%20El%20Puig";
+
+    const EVENT_TITLE = "Boda de Alejandro y Andrea";
+    const EVENT_LOCATION = "Parroquia Asunción de Nuestra Señora (Benaguacil) · Masía Campo Aníbal (El Puig)";
+    const EVENT_DESCRIPTION = "Ceremonia 17:00. Cóctel 20:00. RSVP antes del 10/05/2027.";
+
+    // Botones Maps
+    document.getElementById("btnMaps").href = MAPS_CEREMONIA;
+    document.getElementById("btnMaps2").href = MAPS_CELEBRACION;
+
+    // Botón Calendario (ICS)
+    document.getElementById("btnCalendar").addEventListener("click", (e) => {
+      e.preventDefault();
+      const ics = buildICS();
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "boda-alejandro-andrea.ics";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    // Cuenta atrás
+    const dEl = document.getElementById("d");
+    const hEl = document.getElementById("h");
+    const mEl = document.getElementById("m");
+    const sEl = document.getElementById("s");
+    const target = new Date(WEDDING_DATETIME).getTime();
+
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
+      const hrs = Math.floor(diff / (1000*60*60));
+      diff -= hrs * (1000*60*60);
+      const mins = Math.floor(diff / (1000*60));
+      diff -= mins * (1000*60);
+      const secs = Math.floor(diff / 1000);
+
+      dEl.textContent = String(days);
+      hEl.textContent = String(hrs).padStart(2,"0");
+      mEl.textContent = String(mins).padStart(2,"0");
+      sEl.textContent = String(secs).padStart(2,"0");
+    }
+    tick(); setInterval(tick, 1000);
+
+    // RSVP (demo local)
+    function handleRSVP(ev){
+      ev.preventDefault();
+      const form = ev.target;
+      const data = Object.fromEntries(new FormData(form).entries());
+      const msg = document.getElementById("rsvpMsg");
+      msg.textContent = `¡Gracias, ${data.name}! Hemos recibido tu RSVP: "${data.attend}".`;
+      form.reset();
+      return false;
+    }
+
+    function buildICS(){
+      const start = new Date(WEDDING_DATETIME);
+      const end = new Date(start.getTime() + 8 * 60 * 60 * 1000); // +8h (aprox: ceremonia + celebración)
+      const fmt = (dt) => dt.toISOString().replace(/[-:]/g,"").split(".")[0] + "Z";
+
+      return [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Invitacion Boda//ES",
+        "CALSCALE:GREGORIAN",
+        "BEGIN:VEVENT",
+        "UID:" + Math.random().toString(36).slice(2) + "@boda",
+        "DTSTAMP:" + fmt(new Date()),
+        "DTSTART:" + fmt(start),
+        "DTEND:" + fmt(end),
+        "SUMMARY:" + escapeICS(EVENT_TITLE),
+        "LOCATION:" + escapeICS(EVENT_LOCATION),
+        "DESCRIPTION:" + escapeICS(EVENT_DESCRIPTION),
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+    }
+
+    function escapeICS(text){
+      return String(text || "")
+        .replace(/\\/g, "\\\\")
+        .replace(/\n/g, "\\n")
+        .replace(/,/g, "\\,")
+        .replace(/;/g, "\\;");
+    }
+  </script>
+</body>
+</html>
