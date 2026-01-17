@@ -2,639 +2,741 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Invitación | Alejandro & Andrea</title>
-  <meta name="description" content="Invitación de boda de Alejandro y Andrea. 21/05/2027." />
+
   <style>
     :root{
       --mint:#dff3ea;
       --mint2:#cfeadf;
       --sage:#2f5e52;
       --sage2:#1e4a3f;
-
       --gold:#c8a24a;
       --gold2:#e7d7a6;
-
       --paper:#fffdf8;
       --ink:#14362f;
       --muted:#4f6f66;
-
-      --shadow: 0 14px 40px rgba(0,0,0,.08);
-      --radius:22px;
-      --max: 1040px;
-
-      --serif: ui-serif, Georgia, "Times New Roman", serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --shadow: 0 18px 60px rgba(10,25,20,.18);
+      --radius: 18px;
+      --radius2: 22px;
+      --max: 1120px;
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family:var(--sans);
+      font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
       color:var(--ink);
-      line-height:1.5;
       background:
-        radial-gradient(1200px 700px at 12% 0%, rgba(207,234,223,.65), transparent 60%),
-        radial-gradient(1000px 650px at 88% 10%, rgba(231,215,166,.25), transparent 55%),
-        linear-gradient(180deg, rgba(255,253,248,.92), rgba(255,255,255,.88));
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
-    .nav{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background:rgba(255,253,248,.70);
-      border-bottom:1px solid rgba(20,54,47,.08);
-    }
-    .nav .wrap{display:flex; gap:14px; align-items:center; justify-content:space-between}
-    .nav a{ text-decoration:none; font-size:14px; color:var(--muted)}
-    .nav .links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px; border-radius:999px;
-      border:1px solid rgba(20,54,47,.10);
-      background:rgba(255,255,255,.55);
-      box-shadow: 0 10px 26px rgba(0,0,0,.05);
+        radial-gradient(1200px 800px at 20% 10%, rgba(223,243,234,.85), transparent 55%),
+        radial-gradient(1100px 700px at 90% 20%, rgba(231,215,166,.35), transparent 55%),
+        radial-gradient(1000px 700px at 50% 85%, rgba(207,234,223,.55), transparent 55%),
+        linear-gradient(180deg, #f7fbf8 0%, #f2f7f4 50%, #f8f6f0 100%);
+      overflow-x:hidden;
     }
 
-    /* Reveal on scroll */
-    .reveal{opacity:0; transform:translateY(16px); transition:opacity .75s ease, transform .75s ease;}
-    .reveal.show{opacity:1; transform:translateY(0);}
-
-    /* Papel + grano (sin imágenes externas) */
-    .paperTexture{
-      position: relative;
-      background:
-        radial-gradient(1000px 600px at 10% 0%, rgba(207,234,223,.55), transparent 60%),
-        radial-gradient(900px 520px at 90% 10%, rgba(231,215,166,.22), transparent 55%),
-        linear-gradient(180deg, rgba(255,253,248,.96), rgba(255,255,255,.90)),
-        repeating-linear-gradient(
-          0deg,
-          rgba(0,0,0,.018) 0px,
-          rgba(0,0,0,.018) 1px,
-          rgba(255,255,255,0) 7px,
-          rgba(255,255,255,0) 9px
-        );
-    }
-    .paperTexture::after{
+    /* Paper grain (no images) */
+    body:before{
       content:"";
-      position:absolute; inset:0;
+      position:fixed; inset:0;
       pointer-events:none;
-      opacity:.14;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.018), rgba(0,0,0,.018) 1px, transparent 1px, transparent 3px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.012), rgba(0,0,0,.012) 1px, transparent 1px, transparent 4px);
       mix-blend-mode:multiply;
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-      background-size:240px 240px;
-      border-radius: inherit;
+      opacity:.55;
     }
 
-    /* Layout */
-    header{padding:28px 0 10px;}
-    .spread{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:16px;
-      align-items:stretch;
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 90px;}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(248,251,248,.72);
+      border-bottom: 1px solid rgba(30,74,63,.10);
     }
-    @media (max-width: 920px){ .spread{grid-template-columns:1fr;} }
-
-    /* Pasaporte + ticket cards */
-    .passport, .ticket{
-      border:1px solid rgba(20,54,47,.12);
-      box-shadow: var(--shadow);
-      border-radius:var(--radius);
-      overflow:hidden;
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:10px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
     }
-    .passportHeader, .ticketTop{
-      padding:16px 16px 12px;
-      border-bottom:1px dashed rgba(20,54,47,.18);
-      background: linear-gradient(90deg, rgba(207,234,223,.75), rgba(255,255,255,.18));
-      position:relative;
-    }
-    .passportHeader::after, .ticketTop::after{
-      content:"";
-      position:absolute; left:0; right:0; bottom:-1px; height:2px;
-      background: linear-gradient(90deg, transparent, rgba(200,162,74,.55), transparent);
-    }
-    .passportHeader .title{
-      font-family:var(--serif);
-      font-size:18px;
+    .brand{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       letter-spacing:.14em;
       text-transform:uppercase;
-      color:var(--sage2);
-      margin:0;
+      font-size:12px;
+      color:rgba(20,54,47,.78);
+      white-space:nowrap;
     }
-    .passportBody{padding:18px; display:grid; gap:14px}
-    .names{
-      font-family:var(--serif);
-      font-size:48px;
-      line-height:1.05;
-      margin:0;
-      color:var(--ink);
-    }
-    .sub{margin:0; color:var(--muted)}
-
-    .kv{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-    .field{
-      background: rgba(255,255,255,.70);
-      border:1px solid rgba(20,54,47,.10);
-      border-radius:14px;
-      padding:10px 12px;
-    }
-    .label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
-    .value{font-weight:800; color:var(--ink); margin-top:4px}
-
-    /* Sello */
-    .stampRow{display:flex; align-items:flex-start; justify-content:space-between; gap:10px;}
-    .stampSeal{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 12px;
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      text-decoration:none;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:12px;
+      letter-spacing:.06em;
+      padding:8px 10px;
       border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, rgba(231,215,166,.45), rgba(207,234,223,.55));
-      border:2px solid rgba(200,162,74,.55);
-      box-shadow: 0 10px 24px rgba(0,0,0,.10);
-      transform: rotate(-7deg);
+      border:1px solid rgba(30,74,63,.14);
+      background: rgba(255,255,255,.35);
+    }
+    nav a:hover{background: rgba(223,243,234,.55)}
+    .music{
+      display:flex; align-items:center; gap:8px;
+      border:1px solid rgba(30,74,63,.14);
+      background: rgba(255,255,255,.35);
+      border-radius:999px;
+      padding:6px 10px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:12px;
+      cursor:pointer;
       user-select:none;
       white-space:nowrap;
     }
-    .stampCircle{
-      width:44px; height:44px;
-      border-radius:999px;
-      display:grid;
-      place-items:center;
-      background: rgba(47,94,82,.16);
-      border:2px solid rgba(47,94,82,.35);
+    .dot{width:8px;height:8px;border-radius:99px;background:rgba(47,94,82,.35)}
+    .dot.on{background:var(--gold)}
+    .hero{
+      padding:34px 0 18px;
+    }
+
+    /* Passport cover */
+    .passport{
       position:relative;
-    }
-    .stampCircle::after{
-      content:"";
-      position:absolute; inset:5px;
-      border-radius:999px;
-      border:1px dashed rgba(200,162,74,.55);
-    }
-    .stampInit{
-      font-weight:900;
-      color: var(--sage2);
-      letter-spacing:.06em;
-      font-size:16px;
-    }
-    .planeIcon{
-      width:18px; height:18px;
-      color: var(--gold);
-      flex:0 0 auto;
-    }
-    .stampText{display:flex; flex-direction:column; line-height:1.05;}
-    .stampText b{color:var(--sage2); letter-spacing:.12em; font-size:12px; text-transform:uppercase;}
-    .stampText span{color:var(--muted); font-size:11px;}
-
-    /* Ticket content */
-    .ticketTop{display:flex; align-items:center; justify-content:space-between; gap:10px;}
-    .ticketTop b{color:var(--sage2); letter-spacing:.10em; text-transform:uppercase; font-size:12px}
-    .ticketBody{padding:16px; display:grid; gap:12px;}
-    .bp{
-      display:grid;
-      grid-template-columns: 1fr auto;
-      gap:10px;
-      padding:12px;
-      border-radius:16px;
-      background: rgba(223,243,234,.65);
-      border:1px solid rgba(47,94,82,.18);
-    }
-    .bp .when{font-weight:900; color:var(--sage2); letter-spacing:.02em}
-    .bp .where{color:var(--muted); font-size:13px; margin-top:4px}
-    .bp .pillSeat{
-      align-self:center;
-      border-radius:999px;
-      padding:8px 12px;
-      background: rgba(255,255,255,.75);
-      border:1px solid rgba(20,54,47,.10);
-      font-size:12px;
-      color:var(--sage2);
-      font-weight:900;
-    }
-
-    .ticketBtns{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
-    .btnMint{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(47,94,82,.22);
-      text-decoration:none;
-      font-weight:900;
-      color:var(--sage2);
-      background: rgba(223,243,234,.70);
-    }
-    .btnMint.primary{
-      background: linear-gradient(180deg, rgba(47,94,82,.95), rgba(30,74,63,.95));
-      color:#fff;
-      border-color:transparent;
-    }
-    .smallNote{font-size:12px; color:var(--muted); margin:0}
-
-    /* Sections */
-    .section{padding:14px 0}
-    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
-    .card{
-      background: rgba(255,255,255,.70);
-      border:1px solid rgba(20,54,47,.10);
-      border-radius:18px;
-      padding:18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.06);
-      position:relative;
+      margin: 8px auto 26px;
+      max-width: 980px;
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      background:
+        radial-gradient(120% 90% at 15% 10%, rgba(231,215,166,.22), transparent 55%),
+        radial-gradient(120% 90% at 80% 0%, rgba(200,162,74,.16), transparent 55%),
+        linear-gradient(135deg, rgba(47,94,82,1) 0%, rgba(30,74,63,1) 40%, rgba(47,94,82,1) 100%);
       overflow:hidden;
     }
-    h2{
-      font-family:var(--serif);
-      font-weight:650;
-      margin:0 0 10px;
-      font-size:26px;
-      color:var(--sage2);
+    .passport:before{
+      /* subtle leather texture */
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.06), transparent 42%),
+        radial-gradient(circle at 70% 70%, rgba(0,0,0,.12), transparent 46%),
+        repeating-linear-gradient(25deg, rgba(255,255,255,.03), rgba(255,255,255,.03) 2px, transparent 2px, transparent 6px);
+      opacity:.55;
+      pointer-events:none;
     }
-    .muted{color:var(--muted)}
-    .divider{height:1px; background:rgba(20,54,47,.10); margin:12px 0 0}
-
-    /* Maps */
-    .map{
-      width:100%;
-      aspect-ratio: 16/9;
-      border:0;
-      border-radius:16px;
-    }
-
-    /* RSVP form */
-    .rsvpbox{display:grid; gap:10px}
-    input, select, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(20,54,47,.14);
-      font:inherit;
-      background:white;
-    }
-    textarea{min-height:96px; resize:vertical}
-    .small{font-size:12px}
-
-    /* Footer */
-    footer{padding:28px 0 42px; color:var(--muted); font-size:13px}
-
-    /* Countdown */
-    .countdown{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
-    .cd{
-      flex:1; min-width:120px;
-      padding:12px;
-      border-radius:16px;
-      background: rgba(231,215,166,.18);
-      border:1px solid rgba(200,162,74,.20);
+    .passport-inner{
+      position:relative;
+      padding: 34px 26px 30px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
       text-align:center;
     }
-    .cd b{display:block; font-size:26px; font-family:var(--serif); color:var(--sage2)}
-    .tagRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-    .tag{
-      font-size:13px;
-      color:var(--muted);
-      border:1px dashed rgba(200,162,74,.45);
-      padding:7px 10px;
+    .passport-kicker{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      font-size:12px;
+      color:rgba(231,215,166,.92);
+    }
+    .passport-title{
+      margin: 6px 0 0;
+      font-size: clamp(42px, 6vw, 72px);
+      letter-spacing:.02em;
+      color: #f6f3e7;
+      line-height: .95;
+    }
+    .passport-sub{
+      margin: 6px 0 0;
+      font-size: 16px;
+      color: rgba(255,255,255,.85);
+    }
+    .foil{
+      display:inline-block;
+      margin-top:10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(231,215,166,.55);
+      background:
+        linear-gradient(120deg, rgba(231,215,166,.18), rgba(200,162,74,.10), rgba(231,215,166,.18));
+      color: rgba(231,215,166,.96);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:11px;
+    }
+
+    /* “Open” spread */
+    .spread{
+      margin: 0 auto;
+      max-width: 980px;
+      background: var(--paper);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .spread:before{
+      /* paper fibers */
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(800px 380px at 20% 10%, rgba(223,243,234,.40), transparent 60%),
+        radial-gradient(900px 420px at 80% 0%, rgba(231,215,166,.25), transparent 65%),
+        repeating-linear-gradient(0deg, rgba(0,0,0,.01), rgba(0,0,0,.01) 1px, transparent 1px, transparent 3px);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .spine{
+      position:absolute; top:0; bottom:0; left:50%;
+      width:2px;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(20,54,47,.18), rgba(0,0,0,0));
+      box-shadow: -18px 0 40px rgba(20,54,47,.06), 18px 0 40px rgba(20,54,47,.06);
+      pointer-events:none;
+    }
+    .spread-inner{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    @media (min-width: 860px){
+      .spread-inner{grid-template-columns: 1fr 1fr;}
+    }
+    .page{
+      padding: 26px 22px 28px;
+      min-height: 420px;
+    }
+    @media (min-width: 860px){
+      .page{padding: 30px 34px 34px;}
+    }
+    .page h2{
+      margin:0 0 8px;
+      font-size: 22px;
+      letter-spacing:.02em;
+    }
+    .smallcap{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:11px;
+      color: rgba(20,54,47,.62);
+    }
+    .kv{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
+    }
+    .kv .item{
+      border:1px solid rgba(30,74,63,.10);
+      border-radius: 14px;
+      padding: 12px 12px;
+      background: rgba(223,243,234,.28);
+    }
+    .kv b{
+      display:block;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color: rgba(20,54,47,.66);
+      margin-bottom:6px;
+    }
+    .kv span{font-size:15px; color: rgba(20,54,47,.92)}
+
+    /* Stamp */
+    .stamp{
+      margin-top:16px;
+      display:flex; align-items:center; justify-content:center;
+      gap:12px;
+    }
+    .stamp svg{width:92px; height:92px; opacity:.95}
+    .stamp-note{
+      max-width: 320px;
+      font-size: 14px;
+      color: rgba(20,54,47,.78);
+    }
+
+    /* Boarding pass */
+    .ticket{
+      margin-top: 4px;
+      border-radius: 18px;
+      border: 1px dashed rgba(30,74,63,.22);
+      background:
+        linear-gradient(180deg, rgba(223,243,234,.28), rgba(231,215,166,.16));
+      overflow:hidden;
+      position:relative;
+    }
+    .ticket:before{
+      content:"";
+      position:absolute; inset:0;
+      background: repeating-linear-gradient(90deg, rgba(20,54,47,.06) 0 2px, transparent 2px 10px);
+      opacity:.10;
+      pointer-events:none;
+    }
+    .ticket-head{
+      padding: 14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      border-bottom: 1px solid rgba(30,74,63,.12);
+    }
+    .ticket-title{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:11px;
+      color: rgba(20,54,47,.72);
+    }
+    .pill{
+      padding:6px 10px;
       border-radius:999px;
+      border:1px solid rgba(30,74,63,.16);
+      background: rgba(255,255,255,.55);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:12px;
+      color: rgba(20,54,47,.82);
+      white-space:nowrap;
+    }
+    .ticket-body{
+      padding: 14px 16px 16px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 520px){
+      .ticket-body{grid-template-columns: 1fr 1fr;}
+    }
+    .gate{
+      border:1px solid rgba(30,74,63,.12);
+      border-radius: 14px;
+      padding: 12px 12px;
       background: rgba(255,255,255,.55);
     }
+    .gate .when{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:11px;
+      color: rgba(20,54,47,.66);
+    }
+    .gate .where{
+      margin-top:8px;
+      font-size:15px;
+      color: rgba(20,54,47,.92);
+      line-height:1.25;
+    }
+    .gate .tag{
+      margin-top:10px;
+      display:inline-block;
+      padding:4px 8px;
+      border-radius: 10px;
+      border:1px solid rgba(30,74,63,.14);
+      background: rgba(223,243,234,.45);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:12px;
+      color: rgba(20,54,47,.86);
+    }
+
+    .section{
+      margin: 38px auto 0;
+      max-width: 980px;
+      background: rgba(255,255,255,.60);
+      border: 1px solid rgba(30,74,63,.12);
+      border-radius: var(--radius2);
+      box-shadow: 0 10px 40px rgba(10,25,20,.10);
+      overflow:hidden;
+    }
+    .section .head{
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid rgba(30,74,63,.10);
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      background: linear-gradient(180deg, rgba(223,243,234,.45), rgba(255,255,255,.60));
+    }
+    .section .head h3{margin:0; font-size:20px}
+    .section .head p{margin:0; color:rgba(20,54,47,.72); font-size:13px}
+    .section .body{padding: 16px 18px 18px}
+    .grid2{display:grid; grid-template-columns:1fr; gap:14px}
+    @media(min-width:820px){.grid2{grid-template-columns:1fr 1fr}}
+    .card{
+      border:1px solid rgba(30,74,63,.12);
+      border-radius: 16px;
+      padding: 14px 14px;
+      background: rgba(255,255,255,.70);
+    }
+    .card h4{margin:0 0 8px; font-size:16px}
+    .meta{margin:0; color:rgba(20,54,47,.78); line-height:1.35}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .btn{
+      appearance:none; border:0;
+      padding: 11px 14px;
+      border-radius: 14px;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:8px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing:.02em;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(47,94,82,1), rgba(30,74,63,1));
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(30,74,63,.22);
+    }
+    .btn.ghost{
+      background: rgba(223,243,234,.45);
+      border:1px solid rgba(30,74,63,.14);
+      color: rgba(20,54,47,.92);
+    }
+    .fine{font-size:12px; color:rgba(20,54,47,.66); margin-top:10px}
+
+    /* RSVP form */
+    form{display:grid; gap:10px}
+    label{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-size:12px; letter-spacing:.10em; text-transform:uppercase; color:rgba(20,54,47,.68)}
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(30,74,63,.18);
+      background: rgba(255,255,255,.85);
+      font: inherit;
+      color:var(--ink);
+      outline:none;
+    }
+    textarea{min-height:92px; resize:vertical}
+
+    footer{
+      max-width: 980px;
+      margin: 18px auto 0;
+      text-align:center;
+      color: rgba(20,54,47,.65);
+      font-size: 13px;
+      padding: 10px 0 0;
+    }
+
+    /* Scroll reveal */
+    .reveal{opacity:0; transform: translateY(16px) scale(.99); transition: 700ms ease}
+    .reveal.show{opacity:1; transform: translateY(0) scale(1)}
   </style>
 </head>
-<body>
 
-  <div class="nav">
-    <div class="wrap">
-      <div class="pill">
-        <b style="letter-spacing:.06em">ALEJANDRO & ANDREA</b>
-        <span class="muted">· 21·05·2027</span>
-      </div>
-      <div class="links">
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">ALEJANDRO & ANDREA · 21·05·2027</div>
+      <nav>
         <a href="#detalles">Detalles</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#rsvp">RSVP</a>
         <a href="#info">Info</a>
+      </nav>
+      <div class="music" id="musicBtn" title="Música (toca para activar/desactivar)">
+        <span class="dot" id="musicDot"></span>
+        Música
       </div>
     </div>
   </div>
 
-  <!-- PASAPORTE + BILLETE -->
-  <header class="wrap">
-    <div class="spread">
-      <section class="passport paperTexture reveal">
-        <div class="passportHeader">
-          <p class="title" style="margin:0">Wedding Passport</p>
-        </div>
-
-        <div class="passportBody">
-          <div class="stampRow">
-            <div>
-              <h1 class="names">Alejandro<br>& Andrea</h1>
-              <p class="sub">Nuestro próximo destino: celebrarlo contigo.</p>
-            </div>
-
-            <div class="stampSeal" aria-label="Sello">
-              <div class="stampCircle">
-                <div class="stampInit">A&A</div>
-              </div>
-
-              <svg class="planeIcon" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5L21 16z"/>
-              </svg>
-
-              <div class="stampText">
-                <b>Love Pass</b>
-                <span>VALENCIA · 21·05·2027</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="kv">
-            <div class="field">
-              <div class="label">Fecha</div>
-              <div class="value">21/05/2027</div>
-            </div>
-            <div class="field">
-              <div class="label">Ceremonia</div>
-              <div class="value">17:00</div>
-            </div>
-            <div class="field">
-              <div class="label">Cóctel</div>
-              <div class="value">20:00</div>
-            </div>
-            <div class="field">
-              <div class="label">RSVP límite</div>
-              <div class="value">10/05/2027</div>
-            </div>
-          </div>
-
-          <div class="countdown" aria-label="Cuenta atrás">
-            <div class="cd"><b id="d">--</b><span class="muted">días</span></div>
-            <div class="cd"><b id="h">--</b><span class="muted">horas</span></div>
-            <div class="cd"><b id="m">--</b><span class="muted">min</span></div>
-            <div class="cd"><b id="s">--</b><span class="muted">seg</span></div>
-          </div>
-
-          <div class="ticketBtns">
-            <a class="btnMint primary" href="#rsvp">✅ Confirmar asistencia</a>
-            <a class="btnMint" id="btnCalendar" href="#">📆 Añadir al calendario</a>
-          </div>
-          <p class="smallNote">Si tienes alergias o necesidades especiales, indícalo en el RSVP.</p>
-
-          <div class="divider"></div>
-          <div class="tagRow" style="margin-top:12px">
-            <span class="tag">👗 Dress code: <b>[por definir]</b></span>
-            <span class="tag">👶 Niños: <b>[sí/no]</b></span>
-            <span class="tag">🎁 Regalos: <b>Lo importante es que vengas</b></span>
-          </div>
-        </div>
-      </section>
-
-      <section class="ticket paperTexture reveal">
-        <div class="ticketTop">
-          <b>Boarding Pass</b>
-          <span class="muted" style="font-size:13px">Ceremonia + Cóctel</span>
-        </div>
-
-        <div class="ticketBody">
-          <div class="bp">
-            <div>
-              <div class="when">CEREMONIA · 17:00</div>
-              <div class="where">Parroquia Asunción de Nuestra Señora · Benaguacil</div>
-            </div>
-            <div class="pillSeat">A1</div>
-          </div>
-
-          <div class="bp">
-            <div>
-              <div class="when">CÓCTEL · 20:00</div>
-              <div class="where">Masía Campo Aníbal · El Puig</div>
-            </div>
-            <div class="pillSeat">B7</div>
-          </div>
-
-          <div class="ticketBtns">
-            <a class="btnMint" id="btnMaps" href="#" target="_blank" rel="noopener">🗺️ Ceremonia (Maps)</a>
-            <a class="btnMint" id="btnMaps2" href="#" target="_blank" rel="noopener">🗺️ Cóctel (Maps)</a>
-          </div>
-
-          <p class="smallNote">Consejo: guarda esta página en Favoritos para tener todo a mano.</p>
-        </div>
-      </section>
-    </div>
-  </header>
-
   <main class="wrap">
-
-    <section id="detalles" class="section reveal">
-      <div class="grid3">
-        <div class="card paperTexture">
-          <h2>Ceremonia</h2>
-          <p class="muted"><b>Parroquia Asunción de Nuestra Señora</b><br/>Benaguacil</p>
-          <p>Hora: <b>17:00</b></p>
+    <header class="hero">
+      <section class="passport reveal">
+        <div class="passport-inner">
+          <div class="passport-kicker">Wedding Passport</div>
+          <h1 class="passport-title">Alejandro<br>& Andrea</h1>
+          <p class="passport-sub">Nuestro próximo destino: celebrarlo contigo.</p>
+          <div class="foil">Love Pass · Valencia · 21·05·2027</div>
         </div>
-        <div class="card paperTexture">
-          <h2>Cóctel</h2>
-          <p class="muted"><b>Masía Campo Aníbal</b><br/>El Puig</p>
-          <p>Hora: <b>20:00</b></p>
-        </div>
-        <div class="card paperTexture">
-          <h2>Contacto</h2>
-          <p class="muted">Para cualquier duda:</p>
-          <p>📱 <b>[Tel / WhatsApp]</b><br/>✉️ <b>[Email]</b></p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="ubicacion" class="section reveal">
-      <div class="card paperTexture">
-        <h2>Ubicación</h2>
-        <p class="muted">Te dejamos ambas ubicaciones:</p>
+      <section class="spread reveal" id="detalles">
+        <div class="spine"></div>
+        <div class="spread-inner">
+          <!-- Left page -->
+          <div class="page">
+            <div class="smallcap">Datos del viaje</div>
+            <h2>Fecha y momentos</h2>
 
-        <h3 style="margin:16px 0 8px; font-family:var(--serif); color:var(--sage2)">Ceremonia · Benaguacil</h3>
-        <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Parroquia%20Asunci%C3%B3n%20de%20Nuestra%20Se%C3%B1ora%20Benaguacil&z=15&output=embed"></iframe>
+            <div class="kv">
+              <div class="item">
+                <b>Fecha</b>
+                <span>21/05/2027</span>
+              </div>
+              <div class="item">
+                <b>RSVP límite</b>
+                <span>10/05/2027</span>
+              </div>
+              <div class="item">
+                <b>Ceremonia</b>
+                <span>17:00</span>
+              </div>
+              <div class="item">
+                <b>Cóctel</b>
+                <span>20:00</span>
+              </div>
+            </div>
 
-        <div class="divider"></div>
+            <div class="stamp">
+              <!-- Stamp SVG -->
+              <svg viewBox="0 0 200 200" aria-hidden="true">
+                <defs>
+                  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#e7d7a6"/>
+                    <stop offset="0.5" stop-color="#c8a24a"/>
+                    <stop offset="1" stop-color="#e7d7a6"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="78" fill="none" stroke="url(#g)" stroke-width="6"/>
+                <circle cx="100" cy="100" r="66" fill="none" stroke="#1e4a3f" stroke-opacity=".25" stroke-dasharray="6 8" stroke-width="4"/>
+                <path d="M60 112c26-10 54-10 80 0" fill="none" stroke="#1e4a3f" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
+                <text x="100" y="92" text-anchor="middle" font-size="44" font-family="ui-sans-serif, system-ui" fill="#1e4a3f" opacity=".9" style="letter-spacing:.12em">A A</text>
+                <!-- airplane -->
+                <path d="M97 118l-28 10c-4 1-7-3-4-6l22-21-11-26c-1-3 2-6 5-5l29 11 29-11c3-1 6 2 5 5l-11 26 22 21c3 3 0 7-4 6l-28-10-13 22c-2 3-7 3-9 0l-13-22z"
+                      fill="url(#g)" opacity=".95"/>
+              </svg>
+              <div class="stamp-note">
+                <b style="color:rgba(20,54,47,.9)">Sello oficial</b><br>
+                Iniciales A&A + vuelo directo a “Sí, quiero”.
+              </div>
+            </div>
 
-        <h3 style="margin:16px 0 8px; font-family:var(--serif); color:var(--sage2)">Cóctel · El Puig</h3>
-        <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Mas%C3%ADa%20Campo%20An%C3%ADbal%20El%20Puig&z=15&output=embed"></iframe>
-      </div>
-    </section>
-
-    <section id="rsvp" class="section reveal">
-      <div class="card paperTexture">
-        <h2>RSVP</h2>
-        <p class="muted">Confirma antes del <b>10/05/2027</b>.</p>
-
-        <form class="rsvpbox" onsubmit="return handleRSVP(event)">
-          <div>
-            <label class="small muted">Nombre y apellidos</label>
-            <input required name="name" placeholder="Ej: Ana García" />
+            <p class="fine">Consejo: guarda esta página en Favoritos para tener todo a mano.</p>
           </div>
 
-          <div class="grid3" style="grid-template-columns:1fr 1fr 1fr;">
+          <!-- Right page -->
+          <div class="page">
+            <div class="smallcap">Boarding pass</div>
+            <h2>Ceremonia + Cóctel</h2>
+
+            <div class="ticket">
+              <div class="ticket-head">
+                <div class="ticket-title">Boarding Pass</div>
+                <div class="pill">A&A · 21/05/2027</div>
+              </div>
+
+              <div class="ticket-body">
+                <div class="gate">
+                  <div class="when">Ceremonia · 17:00</div>
+                  <div class="where">Parroquia Asunción de Nuestra Señora · Benaguacil</div>
+                  <span class="tag">Gate A1</span>
+                </div>
+
+                <div class="gate">
+                  <div class="when">Cóctel · 20:00</div>
+                  <div class="where">Masía Campo Aníbal · El Puig</div>
+                  <span class="tag">Gate B7</span>
+                </div>
+
+                <div class="actions" style="grid-column:1/-1">
+                  <!-- Pega aquí tus enlaces reales de Google Maps -->
+                  <a class="btn ghost" href="#" target="_blank" rel="noreferrer">📍 Ceremonia (Maps)</a>
+                  <a class="btn ghost" href="#" target="_blank" rel="noreferrer">📍 Cóctel (Maps)</a>
+                  <a class="btn primary" href="#rsvp">✅ Confirmar asistencia</a>
+                  <button class="btn ghost" type="button" id="addCal">🗓️ Añadir al calendario</button>
+                </div>
+
+                <div class="fine" style="grid-column:1/-1">
+                  Si tienes alergias o necesidades especiales, indícalo en el RSVP.<br>
+                  Dress code: <b>[por definir]</b> · Niños: <b>[sí/no]</b> · Regalos: <b>Lo importante es que vengas</b>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <section class="section reveal" id="ubicacion">
+      <div class="head">
+        <div>
+          <h3>Ubicación</h3>
+          <p>Te dejamos ambas ubicaciones para llegar sin perderte.</p>
+        </div>
+      </div>
+      <div class="body">
+        <div class="grid2">
+          <div class="card">
+            <h4>Ceremonia · Benaguacil</h4>
+            <p class="meta">Parroquia Asunción de Nuestra Señora<br>Hora: 17:00</p>
+            <div class="actions">
+              <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Abrir en Maps</a>
+            </div>
+          </div>
+          <div class="card">
+            <h4>Cóctel · El Puig</h4>
+            <p class="meta">Masía Campo Aníbal<br>Hora: 20:00</p>
+            <div class="actions">
+              <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Abrir en Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="rsvp">
+      <div class="head">
+        <div>
+          <h3>RSVP</h3>
+          <p>Confirma antes del 10/05/2027.</p>
+        </div>
+      </div>
+      <div class="body">
+        <form id="rsvpForm">
+          <div>
+            <label>Nombre y apellidos</label>
+            <input name="nombre" required placeholder="Escribe tu nombre" />
+          </div>
+
+          <div class="grid2">
             <div>
-              <label class="small muted">Asistencia</label>
-              <select name="attend" required>
-                <option value="" selected disabled>Elige…</option>
-                <option>Voy 🎉</option>
-                <option>No puedo 😢</option>
+              <label>Asistencia</label>
+              <select name="asistencia" required>
+                <option value="">Elige…</option>
+                <option>Voy</option>
+                <option>No puedo</option>
               </select>
             </div>
             <div>
-              <label class="small muted">Acompañantes</label>
-              <select name="guests">
+              <label>Acompañantes</label>
+              <select name="acompanantes">
                 <option>0</option><option>1</option><option>2</option><option>3</option>
               </select>
             </div>
-            <div>
-              <label class="small muted">Menú</label>
-              <select name="menu">
-                <option>Normal</option>
-                <option>Vegetariano</option>
-                <option>Vegano</option>
-                <option>Sin gluten</option>
-              </select>
-            </div>
           </div>
 
           <div>
-            <label class="small muted">Alergias / comentarios</label>
-            <textarea name="notes" placeholder="Cuéntanos cualquier detalle importante…"></textarea>
+            <label>Menú</label>
+            <select name="menu">
+              <option>Normal</option>
+              <option>Vegetariano</option>
+              <option>Vegano</option>
+              <option>Sin gluten</option>
+            </select>
           </div>
 
-          <button class="btnMint primary" type="submit">Enviar RSVP</button>
-          <p class="small muted" id="rsvpMsg"></p>
-          <p class="smallNote">Nota: ahora mismo esto solo confirma en pantalla. Si quieres que se guarde en una lista, lo conectamos a Google Forms/Airtable.</p>
+          <div>
+            <label>Alergias / comentarios</label>
+            <textarea name="comentarios" placeholder="Cuéntanos si necesitas algo especial"></textarea>
+          </div>
+
+          <button class="btn primary" type="submit">Enviar RSVP</button>
+          <div class="fine" id="rsvpMsg"></div>
         </form>
+
+        <p class="fine">Nota: ahora mismo esto confirma en pantalla. Si quieres que se guarde en una lista, lo conectamos a Google Forms/Airtable.</p>
       </div>
     </section>
 
-    <section id="info" class="section reveal">
-      <div class="card paperTexture">
-        <h2>Info útil</h2>
-        <ul>
-          <li><b>Transporte:</b> [parking / autobús / taxis]</li>
-          <li><b>Alojamiento:</b> [hotel recomendado / código descuento]</li>
-          <li><b>Niños:</b> [si habrá animación / si es solo adultos]</li>
-          <li><b>Regalos:</b> [lista / cuenta / “con vuestra presencia…”]</li>
-        </ul>
+    <section class="section reveal" id="info">
+      <div class="head">
+        <div>
+          <h3>Info útil</h3>
+          <p>Detalles para que lo tengas todo controlado.</p>
+        </div>
+      </div>
+      <div class="body">
+        <div class="grid2">
+          <div class="card">
+            <h4>Transporte</h4>
+            <p class="meta">[parking / autobús / taxis]</p>
+          </div>
+          <div class="card">
+            <h4>Alojamiento</h4>
+            <p class="meta">[hotel recomendado / código descuento]</p>
+          </div>
+          <div class="card">
+            <h4>Niños</h4>
+            <p class="meta">[si habrá animación / si es solo adultos]</p>
+          </div>
+          <div class="card">
+            <h4>Regalos</h4>
+            <p class="meta">[lista / cuenta / “con vuestra presencia…”]</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h4>Contacto</h4>
+          <p class="meta">Para cualquier duda:<br>[Tel / WhatsApp] · ✉️ [Email]</p>
+        </div>
       </div>
     </section>
 
-    <footer>
-      Hecho con ❤️ para nuestra boda · <span class="muted">Alejandro & Andrea</span>
+    <footer class="reveal">
+      Hecho con ❤️ para nuestra boda · Alejandro & Andrea
     </footer>
   </main>
 
+  <!-- Música (pon aquí tu mp3) -->
+  <audio id="bgm" preload="none" loop>
+    <!-- Sustituye por tu archivo: /music/cancion.mp3 -->
+    <!-- <source src="music/cancion.mp3" type="audio/mpeg"> -->
+  </audio>
+
   <script>
-    // ===== CONFIG =====
-    // Ceremonia: 21/05/2027 17:00 (España, en mayo suele ser horario de verano +02)
-    const WEDDING_DATETIME = "2027-05-21T17:00:00+02:00";
+    // Scroll reveal
+    const io = new IntersectionObserver((entries)=>{
+      for (const e of entries){
+        if(e.isIntersecting) e.target.classList.add('show');
+      }
+    }, {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    const MAPS_CEREMONIA = "https://www.google.com/maps?q=Parroquia%20Asunci%C3%B3n%20de%20Nuestra%20Se%C3%B1ora%20Benaguacil";
-    const MAPS_CELEBRACION = "https://www.google.com/maps?q=Mas%C3%ADa%20Campo%20An%C3%ADbal%20El%20Puig";
+    // RSVP (solo confirmación visual)
+    const form = document.getElementById('rsvpForm');
+    const msg = document.getElementById('rsvpMsg');
+    form?.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const fd = new FormData(form);
+      msg.textContent = `✅ Gracias, ${fd.get('nombre')}. Hemos registrado tu respuesta: ${fd.get('asistencia')}.`;
+      form.reset();
+    });
 
-    const EVENT_TITLE = "Boda de Alejandro y Andrea";
-    const EVENT_LOCATION = "Parroquia Asunción de Nuestra Señora (Benaguacil) · Masía Campo Aníbal (El Puig)";
-    const EVENT_DESCRIPTION = "Ceremonia 17:00. Cóctel 20:00. RSVP antes del 10/05/2027.";
-
-    // Botones Maps
-    document.getElementById("btnMaps").href = MAPS_CEREMONIA;
-    document.getElementById("btnMaps2").href = MAPS_CELEBRACION;
-
-    // Calendario (ICS)
-    document.getElementById("btnCalendar").addEventListener("click", (e) => {
-      e.preventDefault();
-      const ics = buildICS();
-      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "boda-alejandro-andrea.ics";
+    // Add to calendar (simple .ics)
+    document.getElementById('addCal')?.addEventListener('click', ()=>{
+      const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Boda A&A//ES
+BEGIN:VEVENT
+UID:${Date.now()}@a-a
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z
+DTSTART:20270521T150000Z
+DTEND:20270521T230000Z
+SUMMARY:Boda Alejandro & Andrea
+DESCRIPTION:Ceremonia 17:00 / Cóctel 20:00
+LOCATION:Valencia
+END:VEVENT
+END:VCALENDAR`;
+      const blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'boda-alejandro-andrea.ics';
       document.body.appendChild(a);
       a.click();
       a.remove();
-      URL.revokeObjectURL(url);
     });
 
-    // Cuenta atrás
-    const dEl = document.getElementById("d");
-    const hEl = document.getElementById("h");
-    const mEl = document.getElementById("m");
-    const sEl = document.getElementById("s");
-    const target = new Date(WEDDING_DATETIME).getTime();
+    // Música (sin autoplay)
+    const audio = document.getElementById('bgm');
+    const btn = document.getElementById('musicBtn');
+    const dot = document.getElementById('musicDot');
+    let on = false;
 
-    function tick(){
-      const now = Date.now();
-      let diff = Math.max(0, target - now);
-
-      const days = Math.floor(diff / (1000*60*60*24));
-      diff -= days * (1000*60*60*24);
-      const hrs = Math.floor(diff / (1000*60*60));
-      diff -= hrs * (1000*60*60);
-      const mins = Math.floor(diff / (1000*60));
-      diff -= mins * (1000*60);
-      const secs = Math.floor(diff / 1000);
-
-      dEl.textContent = String(days);
-      hEl.textContent = String(hrs).padStart(2,"0");
-      mEl.textContent = String(mins).padStart(2,"0");
-      sEl.textContent = String(secs).padStart(2,"0");
-    }
-    tick(); setInterval(tick, 1000);
-
-    // RSVP (demo)
-    function handleRSVP(ev){
-      ev.preventDefault();
-      const form = ev.target;
-      const data = Object.fromEntries(new FormData(form).entries());
-      const msg = document.getElementById("rsvpMsg");
-      msg.textContent = `¡Gracias, ${data.name}! Hemos recibido tu RSVP: "${data.attend}".`;
-      form.reset();
-      return false;
-    }
-
-    function buildICS(){
-      const start = new Date(WEDDING_DATETIME);
-      const end = new Date(start.getTime() + 8 * 60 * 60 * 1000); // +8h aprox
-      const fmt = (dt) => dt.toISOString().replace(/[-:]/g,"").split(".")[0] + "Z";
-
-      return [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Invitacion Boda//ES",
-        "CALSCALE:GREGORIAN",
-        "BEGIN:VEVENT",
-        "UID:" + Math.random().toString(36).slice(2) + "@boda",
-        "DTSTAMP:" + fmt(new Date()),
-        "DTSTART:" + fmt(start),
-        "DTEND:" + fmt(end),
-        "SUMMARY:" + escapeICS(EVENT_TITLE),
-        "LOCATION:" + escapeICS(EVENT_LOCATION),
-        "DESCRIPTION:" + escapeICS(EVENT_DESCRIPTION),
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
-    }
-
-    function escapeICS(text){
-      return String(text || "")
-        .replace(/\\/g, "\\\\")
-        .replace(/\n/g, "\\n")
-        .replace(/,/g, "\\,")
-        .replace(/;/g, "\\;");
-    }
-
-    // Reveal on scroll
-    const items = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
-    }, { threshold: 0.15 });
-    items.forEach(el=>io.observe(el));
+    btn?.addEventListener('click', async ()=>{
+      if(!audio) return;
+      try{
+        if(!on){
+          await audio.play();
+          on = true;
+          dot.classList.add('on');
+        }else{
+          audio.pause();
+          on = false;
+          dot.classList.remove('on');
+        }
+      }catch(e){
+        alert("Safari necesita que la música tenga un archivo .mp3 y que toques el botón para iniciar.");
+      }
+    });
   </script>
 </body>
 </html>
